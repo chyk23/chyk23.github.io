@@ -1,0 +1,75 @@
+{
+    "items": [
+      {
+        "id": 1,
+        "thumbnail":"https://omnispace.oss-cn-hongkong.aliyuncs.com/artofmanek/reference/E5F5104B-E3F5-4CE5-A81D-2F14A99517EB",
+        "object_file": "assets/object1.obj",
+        "owner": "Celine Tiu",
+        "shoemaker": "Unknown",
+        "inherited_from": "Mother",
+        "inherited_when": "A few years ago (As of 2024)",
+        "q1": "Unknown",
+        "q2": "Mother",
+        "q3": "A few years ago my mom bought this kasut manek from a gift shop at Hotel Equatorial Melaka. She gave it to me and I love it so much.",
+        "q4": "The flower design with fine beads is very unique and beautiful. I love how it matches with my baju kebaya.",
+        "story": "Celine Tiu, a Melaka native, inherited a beautiful manek embroidery artwork from her mother a few years ago. The origin of the artwork remains unknown, but Celine's mother purchased it from a gift shop at Hotel Equatorial Melaka. Celine cherishes this piece for its unique and beautiful flower design, adorned with fine beads. She loves how it complements her baju kebaya, making it a significant and cherished addition to her collection."
+      },
+      {
+        "id": 2,
+        "thumbnail":"https://omnispace.oss-cn-hongkong.aliyuncs.com/artofmanek/reference/B9A0AC46-C03B-4A14-A0EA-47D707166009",
+        "object_file": "assets/object1.obj",
+        "owner": "Sue-Anne",
+        "shoemaker": "Sue-Anne",
+        "inherited_from": "Self-made",
+        "inherited_when": "Made in 2022",
+        "q1": "I made this when I moved to Melaka in 2022 with my husband and three cats. ",
+        "q2": "I made this myself ",
+        "q3": "I attended Manek classes at PPCM in 2022. And under the guidance of the teacher I started to sew it bead by bead. ",
+        "q4": "It is a sense of pride having to have made my move to Melaka and a gage with the culture here. It signifies to me what it means to do something for yourself in spite of the voices that told me not to and in spite of my own fears.",
+        "story": "Sue-Anne, born in 1988 and raised in Subang Jaya, made this manek embroidery artwork herself when she moved to Melaka in 2022 with her husband and three cats. Attending Manek classes at PPCM, she learned the art of sewing bead by bead under the guidance of her teacher. This embroidery work holds a significant meaning for Sue-Anne as it represents her sense of pride in making her move to Melaka and engaging with the local culture. It serves as a reminder of what it means to pursue something for oneself, despite the discouraging voices and personal fears."
+      },
+      {
+        "id": 3,
+        "thumbnail":"https://omnispace.oss-cn-hongkong.aliyuncs.com/artofmanek/reference/7F072EB6-0F19-4DC2-A68D-5F2445A3C208",
+        "object_file": "assets/object1.obj",
+        "owner": "Josephine",
+        "shoemaker": "Josephine's Grandmother",
+        "inherited_from": "Aunt",
+        "inherited_when": "At a family gathering",
+        "q1": "My grandmother ",
+        "q2": "Aunt",
+        "q3": "Family gathering, symbolic handed",
+        "q4": "Link to family history ",
+        "story": "In the charming city of Malacca, Malaysia, Josephine, born in 1956, grew up surrounded by the rich cultural heritage of her ancestors. One particular artwork, the intricate manek embroidery, holds great significance for Josephine. When asked about the origins of this masterpiece, she proudly reveals that her grandmother was the mastermind behind its creation. This unique art form, characterized by its tiny glass beads meticulously stitched onto fabric, has been passed down through generations, preserving Josephine's family history. The embroidery was inherited by Josephine from her aunt during a momentous family gathering, symbolizing the enduring connection between past and present. With every stitch carefully placed, this artwork serves as a tangible link to her roots, reminding Josephine of the legacy left behind by her ancestors in the form of their exquisite craftsmanship."
+      },
+      {
+        "id": 4,
+        "thumbnail":"",
+        "object_file": "assets/object1.obj",
+        "owner": "",
+        "shoemaker": "",
+        "inherited_from": "",
+        "inherited_when": "",
+        "q1": "",
+        "q2": "",
+        "q3": "",
+        "q4": "",
+        "story": ""
+      },
+      {
+        "id": 5,
+        "thumbnail":"https://omnispace.oss-cn-hongkong.aliyuncs.com/artofmanek/reference/19E4592E-12B1-4329-AA7E-E261EDA9CD26",
+        "object_file": "assets/object1.obj",
+        "owner": "Kieran",
+        "shoemaker": "Mr. Lee",
+        "inherited_from": "Kieran's Grandmother",
+        "inherited_when": "When Kieran turned 16 years old",
+        "q1": "Mr. Lee",
+        "q2": "My grandmother",
+        "q3": "When I was 16 for my birthday",
+        "q4": "It's a family heirloom and a precious gift",
+        "story": "Kieran, born in 2003 and raised in KL, inherited a Manek embroidery artwork made by Mr. Lee from their grandmother when they turned 16. This piece holds great significance for Kieran as it is not only a family heirloom but also a precious gift."
+      }
+      
+    ]
+  }

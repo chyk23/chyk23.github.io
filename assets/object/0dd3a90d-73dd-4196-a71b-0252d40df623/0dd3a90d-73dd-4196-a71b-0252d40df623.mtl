@@ -1,0 +1,16 @@
+
+newmtl material_1
+	map_Kd 0dd3a90d-73dd-4196-a71b-0252d40df623/baked_mesh_tex0.jpg
+	Ka 0 0 0
+	Ks 0 0 0
+	map_ao 0dd3a90d-73dd-4196-a71b-0252d40df623/baked_mesh_ao0.jpg
+	subsurface 0
+	metallic 0
+	specularTint 0
+	roughness 0.9
+	anisotropicRotation 0
+	sheen 0.05
+	sheenTint 0
+	clearCoat 0
+	clearCoatGloss 0
+	map_tangentSpaceNormal 0dd3a90d-73dd-4196-a71b-0252d40df623/baked_mesh_norm0.jpg
