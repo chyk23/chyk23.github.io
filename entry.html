@@ -409,9 +409,13 @@
           objLoader.load(
             "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.obj",
             function (object) {
+
+
               console.log("successfully load thing");
               scene.add(object);
               object.position.y -= 60;
+              console.log('Thing is added in scene?')
+              console.log(object.parent === scene)
             }
           );
         }
