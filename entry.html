@@ -409,7 +409,9 @@
           objLoader.load(
             "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.obj",
             function (object) {
-
+              object.position.set(0, -5, 0); // Adjust the values as needed
+              object.scale.set(0.05, 0.05, 0.05)
+              object.rotation.x = -Math.PI / 2;
 
               console.log("successfully load thing");
               scene.add(object);
