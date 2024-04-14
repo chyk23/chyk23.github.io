@@ -343,6 +343,7 @@
       import { MTLLoader } from 'https://unpkg.com/three@0.138.3/examples/jsm/loaders/MTLLoader.js';
 
       var scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xffffff);
 
       var containerStyle = getComputedStyle(
         document.getElementById("model-container"),
@@ -417,8 +418,7 @@
               scene.add(object);
               object.position.y -= 60;
               object.visible = true
-              console.log('Thing is added in scene?')
-              console.log(object.parent === scene)
+              console.log(`Thing is added in scene? ${object.parent === scene}`)
             }
           );
         }
