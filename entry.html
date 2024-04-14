@@ -366,10 +366,10 @@
         .getElementById("model-container")
         .appendChild(renderer.domElement);
 
-      // var controls = new OrbitControls(camera, renderer.domElement);
-      // controls.enableDamping = true;
-      // controls.dampingFactor = 0.25;
-      // controls.enableZoom = true;
+      var controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.25;
+      controls.enableZoom = true;
 
       var keyLight = new THREE.DirectionalLight(
         new THREE.Color("hsl(30, 100%, 75%)"),
