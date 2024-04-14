@@ -391,12 +391,13 @@
       scene.add(backLight);
       
       var mtlLoader = new MTLLoader();
+      
       mtlLoader.setResourcePath(
         "assets/object/dc46c6a5-53dc-449a-8225-f3ce4a9a79f6/"
       );
       mtlLoader.setPath("assets/object/dc46c6a5-53dc-449a-8225-f3ce4a9a79f6/");
       mtlLoader.load(
-        "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.mtl/",
+        "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.mtl",
         function (materials) {
           materials.preload();
 
