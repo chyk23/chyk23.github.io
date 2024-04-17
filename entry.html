@@ -24,39 +24,35 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/loaders/MTLLoader.js"></script> -->
     <!-- <script type="module"  src="https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/controls/OrbitControls.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/jsm/loaders/OBJLoader.js"></script> -->
-    
 
     <script type="importmap">
       {
-          "imports": {
-              "three": "https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.module.js",
-              "OBJLoader" : "https://cdn.jsdelivr.net/npm/three@0.134.0/examples/jsm/loaders/OBJLoader.js",
-              "MTLLoader" : "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/loaders/MTLLoader.js",
-              "OrbitControls" : "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/controls/OrbitControls.js"
-          }
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.module.js",
+          "OBJLoader": "https://cdn.jsdelivr.net/npm/three@0.134.0/examples/jsm/loaders/OBJLoader.js",
+          "MTLLoader": "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/loaders/MTLLoader.js",
+          "OrbitControls": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/controls/OrbitControls.js"
+        }
       }
     </script>
- 
 
-
-    <script type = 'module'>
-      import * as THREE from 'three'
-      import { OrbitControls } from 'https://unpkg.com/three@0.138.3/examples/jsm/controls/OrbitControls.js';
+    <script type="module">
+      import * as THREE from "three";
+      import { OrbitControls } from "https://unpkg.com/three@0.138.3/examples/jsm/controls/OrbitControls.js";
       import { OBJLoader } from "https://unpkg.com/three@0.138.3/examples/jsm/loaders/OBJLoader.js";
-      import { MTLLoader } from 'https://unpkg.com/three@0.138.3/examples/jsm/loaders/MTLLoader.js';
+      import { MTLLoader } from "https://unpkg.com/three@0.138.3/examples/jsm/loaders/MTLLoader.js";
 
       // import {OrbitControls} from "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/controls/OrbitControls.js"
       // import { OBJLoader } from "https://cdn.jsdelivr.net/npm/three@0.134.0/examples/jsm/loaders/OBJLoader.js";
       // import { MTLLoader } from "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/loaders/MTLLoader.js";
-      
+
       // console.log(MTLLoader)
       // console.log(THREE)
       // console.log(OrbitControls)
       // console.log(OBJLoader)
       // console.log(MTLLoader)
-      
     </script>
-    
+
     <!-- <script type="importmap">
       {
         "imports": {
@@ -216,7 +212,7 @@
 
     <div class="container-fluid mt-4">
       <div class="row">
-        <div class="col-lg-8 col-60" id="model-container" style = "height: auto;">
+        <div class="col-lg-8 col-60" id="model-container" style="height: auto">
           <!--3D model-->
           <h5>3d model</h5>
           <p>This column will take up 60% of the width.</p>
@@ -285,11 +281,11 @@
       });
     </script>
 
-    <script type = 'module'>
-      import * as THREE from 'three'
-      import { OrbitControls } from 'https://unpkg.com/three@0.138.3/examples/jsm/controls/OrbitControls.js';
+    <script type="module">
+      import * as THREE from "three";
+      import { OrbitControls } from "https://unpkg.com/three@0.138.3/examples/jsm/controls/OrbitControls.js";
       import { OBJLoader } from "https://unpkg.com/three@0.138.3/examples/jsm/loaders/OBJLoader.js";
-      import { MTLLoader } from 'https://unpkg.com/three@0.138.3/examples/jsm/loaders/MTLLoader.js';
+      import { MTLLoader } from "https://unpkg.com/three@0.138.3/examples/jsm/loaders/MTLLoader.js";
 
       var scene = new THREE.Scene();
       scene.background = new THREE.Color(0xffffff);
@@ -309,18 +305,14 @@
       );
       camera.position.z = 200;
 
-  // Adjust camera aspect ratio
-  var container = document.getElementById("model-container");
-  var containerStyle = getComputedStyle(container, null);
-  var containerWidth = parseInt(containerStyle.getPropertyValue("width"));
-  var containerHeight = parseInt(containerStyle.getPropertyValue("height"));
-  var aspectRatio = containerWidth / containerHeight;
-  camera.aspect = aspectRatio;
-  camera.updateProjectionMatrix();
-
- 
-
-
+      // Adjust camera aspect ratio
+      var container = document.getElementById("model-container");
+      var containerStyle = getComputedStyle(container, null);
+      var containerWidth = parseInt(containerStyle.getPropertyValue("width"));
+      var containerHeight = parseInt(containerStyle.getPropertyValue("height"));
+      var aspectRatio = containerWidth / containerHeight;
+      camera.aspect = aspectRatio;
+      camera.updateProjectionMatrix();
 
       var renderer = new THREE.WebGLRenderer();
       renderer.setSize(SCREEN_WIDTH - 5, SCREEN_HEIGHT);
@@ -352,54 +344,59 @@
       scene.add(keyLight);
       scene.add(fillLight);
       scene.add(backLight);
-      
+
       var mtlLoader = new MTLLoader();
-      
+
       mtlLoader.setResourcePath(
         "assets/object/dc46c6a5-53dc-449a-8225-f3ce4a9a79f6/"
       );
       mtlLoader.setPath("assets/object/dc46c6a5-53dc-449a-8225-f3ce4a9a79f6/");
-      mtlLoader.load(
-        "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.mtl",
-        function (materials) {
-          materials.preload();
+      // mtlLoader.load(
+      //   "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.mtl",
+      //   function (materials) {
+      //     materials.preload();
 
-          var objLoader = new OBJLoader();
-          objLoader.setMaterials(materials);
-          objLoader.setPath(
-            "assets/object/dc46c6a5-53dc-449a-8225-f3ce4a9a79f6/"
-          );
-          objLoader.load(
-            "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.obj",
-            function (object) {
-              object.position.set(0, -5, 0); // Adjust the values as needed
-              object.scale.set(0.05, 0.05, 0.05)
-              object.rotation.x = -Math.PI / 2;
+      //     var objLoader = new OBJLoader();
+      //     objLoader.setMaterials(materials);
+      //     objLoader.setPath(
+      //       "assets/object/dc46c6a5-53dc-449a-8225-f3ce4a9a79f6/"
+      //     );
+      //     objLoader.load(
+      //       "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.obj",
+      //       function (object) {
+      //         object.position.set(0, -5, 0); // Adjust the values as needed
+      //         object.scale.set(0.05, 0.05, 0.05);
+      //         // Scale the model to fit the container
+      //         object.scale.setScalar(containerWidth / 200); // Adjust the divisor as needed based on your model's size
+      //         object.rotation.x = -Math.PI / 2;
 
-              console.log("successfully load thing");
-              scene.add(object);
-              object.position.y -= 20;
-              object.visible = true
-              console.log(`Is the thing added in scene? ${object.parent === scene}`)
-            }
-          );
-        }
-      );
-      // var objLoader = new THREE.OBJLoader();
-      // objLoader.setMaterials(materials);
-      // objLoader.setPath("assets/object/");
-      // objLoader.load(
-      //   "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.obj",
-      //   function (object) {
-      //     scene.add(object);
-      //     object.position.y -= 60;
+      //         console.log("successfully load thing");
+      //         scene.add(object);
+      //         object.position.y -= 20;
+      //         object.visible = true;
+      //         console.log(
+      //           `Is the thing added in scene? ${object.parent === scene}`
+      //         );
+      //       }
+      //     );
       //   }
       // );
 
+      // Create a sphere geometry
+      var sphereGeometry = new THREE.SphereGeometry(1, 32, 32); // Parameters: radius, widthSegments, heightSegments
 
-    // Scale the model to fit the container
-    object.scale.setScalar(containerWidth / 200); // Adjust the divisor as needed based on your model's size
-    
+      // Create a material for the sphere
+      var sphereMaterial = new THREE.MeshPhongMaterial({ color: 0xff0000 }); // Set the color to red
+
+      // Create a mesh by combining the geometry and material
+      var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+
+      // Set the position of the sphere
+      sphere.position.set(0, 0, 0); // Adjust the position as needed
+
+      // Add the sphere to the scene
+      scene.add(sphere);
+
       var animate = function () {
         requestAnimationFrame(animate);
         // controls.update();
