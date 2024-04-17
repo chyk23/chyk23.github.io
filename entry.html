@@ -309,17 +309,16 @@
       );
       camera.position.z = 200;
 
-// Adjust camera aspect ratio
-var container = document.getElementById("model-container");
-var containerStyle = getComputedStyle(container, null);
-var containerWidth = parseInt(containerStyle.getPropertyValue("width"));
-var containerHeight = parseInt(containerStyle.getPropertyValue("height"));
-var aspectRatio = containerWidth / containerHeight;
-camera.aspect = aspectRatio;
-camera.updateProjectionMatrix();
+  // Adjust camera aspect ratio
+  var container = document.getElementById("model-container");
+  var containerStyle = getComputedStyle(container, null);
+  var containerWidth = parseInt(containerStyle.getPropertyValue("width"));
+  var containerHeight = parseInt(containerStyle.getPropertyValue("height"));
+  var aspectRatio = containerWidth / containerHeight;
+  camera.aspect = aspectRatio;
+  camera.updateProjectionMatrix();
 
-// Scale the model to fit the container
-object.scale.setScalar(containerWidth / 200); // Adjust the divisor as needed based on your model's size
+ 
 
 
 
@@ -397,6 +396,10 @@ object.scale.setScalar(containerWidth / 200); // Adjust the divisor as needed ba
       //   }
       // );
 
+
+    // Scale the model to fit the container
+    object.scale.setScalar(containerWidth / 200); // Adjust the divisor as needed based on your model's size
+    
       var animate = function () {
         requestAnimationFrame(animate);
         // controls.update();
