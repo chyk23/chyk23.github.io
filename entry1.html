@@ -6,7 +6,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Testing - entry</title>
+    <link rel="icon" href="assets\shoe-prints-solid.svg" sizes="any" type="image/svg+xml">
+
+    <title>A Step in Time</title>
 
     <!--Bootstrap-->
     <link
@@ -20,11 +22,6 @@
     <link rel="stylesheet" href="css/styles.css" />
 
     <!--Three.JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/loaders/MTLLoader.js"></script> -->
-    <!-- <script type="module"  src="https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/controls/OrbitControls.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/jsm/loaders/OBJLoader.js"></script> -->
-
     <script type="importmap">
       {
         "imports": {
@@ -212,10 +209,13 @@
 
     <div class="container-fluid mt-4">
       <div class="row">
-        <div class="col-lg-8 col-60" id="model-container" style="height: auto">
+        <div class="col-lg-8 col-60" id="model-container">
           <!--3D model-->
-          <h5>3d model</h5>
-          <p>This column will take up 60% of the width.</p>
+          <h3>Interactive 3D Model</h3>
+          <p>
+            Feel free to interact with the 3D model of the shoe! ♪(^∇^*) <br />
+            If viewing with phone, it is recommended to view in portrait mode.
+          </p>
         </div>
 
         <div class="col-lg-4 col-40" id="entry-text">
@@ -223,11 +223,12 @@
           <div>
             <h3>Information</h3>
             <p>
-              <b>Owner:</b> <span id="owner"></span><br />
-              <b>Shoemaker:</b> <span id="shoemaker"></span><br />
-              <b>Inherited from:</b> <span id="inherited-from"></span><br />
-              <b>Inherited when:</b> <span id="inherited-when"></span
-              ><br /><br />
+              <b>Owner: </b> <span id="owner">Sue-Anne</span><br />
+              <b>Designer: </b> <span id="shoemaker">Sue-Anne</span><br />
+              <b>Inherited from: </b> <span id="inherited-from">Self-made</span
+              ><br />
+              <b>Inherited when: </b>
+              <span id="inherited-when">Made in 2022</span><br /><br />
             </p>
           </div>
 
@@ -235,19 +236,48 @@
           <div>
             <h3>Q&A with the Owner</h3>
             <b>Who made this manek embroidery artwork?</b>
-            <p><span id="q1"></span></p>
+            <p>
+              <span id="q1"
+                >I made this when I moved to Melaka in 2022 with my husband and
+                three cats.</span
+              >
+            </p>
             <b>Who did you inherit this piece from?</b>
-            <p><span id="q2"></span></p>
+            <p><span id="q2">I made this myself.</span></p>
             <b>When, and how did it happen?</b>
-            <p><span id="q3"></span></p>
-            <b>What do you love about this piece?</b>
-            <p><span id="q4"></span></p>
+            <p>
+              <span id="q3"
+                >I attended Manek classes at PPCM in 2022. And under the
+                guidance of the teacher I started to sew it bead by bead.</span
+              >
+            </p>
+            <b>What is the significance behind this piece?</b>
+            <p>
+              <span id="q4"
+                >It is a sense of pride having to have made my move to Melaka
+                and engage with the culture here. It signifies to me what it
+                means to do something for yourself in spite of the voices that
+                told me not to and in spite of my own fears.</span
+              >
+            </p>
           </div>
 
           <hr id="hr-2" />
 
           <h3>The Story</h3>
-          <p><span id="story"></span></p>
+          <p>
+            <span id="story"
+              >Sue-Anne, born in 1988 and raised in Subang Jaya, made this manek
+              embroidery artwork herself when she moved to Melaka in 2022 with
+              her husband and three cats. Attending Manek classes at PPCM, she
+              learned the art of sewing bead by bead under the guidance of her
+              teacher. This embroidery work holds a significant meaning for
+              Sue-Anne as it represents her sense of pride in making her move to
+              Melaka and engaging with the local culture. It serves as a
+              reminder of what it means to pursue something for oneself, despite
+              the discouraging voices and personal fears.</span
+            >
+          </p>
         </div>
       </div>
     </div>
@@ -288,7 +318,7 @@
       import { MTLLoader } from "https://unpkg.com/three@0.138.3/examples/jsm/loaders/MTLLoader.js";
 
       var scene = new THREE.Scene();
-      scene.background = new THREE.Color(0xffffff);
+      scene.background = new THREE.Color(0x818589);
 
       var containerStyle = getComputedStyle(
         document.getElementById("model-container"),
@@ -303,20 +333,32 @@
         0.1,
         500
       );
-      camera.position.z = 200;
+      camera.position.z = 150;
+
+      // Get container dimensions
+      var container = document.getElementById("model-container");
+      var containerWidth = container.clientWidth; // Use clientWidth to include padding
+      var containerHeight = container.clientHeight; // Use clientHeight to include padding
+
+      // Calculate padding (e.g., 10 pixels)
+      var padding = 10;
 
       // Adjust camera aspect ratio
-      var container = document.getElementById("model-container");
-      var containerStyle = getComputedStyle(container, null);
-      var containerWidth = parseInt(containerStyle.getPropertyValue("width"));
-      var containerHeight = parseInt(containerStyle.getPropertyValue("height"));
-      var aspectRatio = containerWidth / containerHeight;
+      var aspectRatio =
+        (containerWidth - 2 * padding) /
+        (containerHeight - (40 / 100) * containerHeight); // Subtract padding
       camera.aspect = aspectRatio;
       camera.updateProjectionMatrix();
 
       var renderer = new THREE.WebGLRenderer();
-      renderer.setSize(SCREEN_WIDTH - 5, SCREEN_HEIGHT);
-      // renderer.setSize(600,600);
+      // renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+
+      // Set renderer size to fit within the container with padding
+      renderer.setSize(
+        containerWidth - 2 * padding,
+        containerHeight - (40 / 100) * containerHeight
+      ); // Subtract padding
+
       document
         .getElementById("model-container")
         .appendChild(renderer.domElement);
@@ -326,76 +368,86 @@
       controls.dampingFactor = 0.25;
       controls.enableZoom = true;
 
-      var keyLight = new THREE.DirectionalLight(
-        new THREE.Color("hsl(30, 100%, 75%)"),
-        1.0
-      );
-      keyLight.position.set(-100, 0, 100);
+      const directionalLight = new THREE.DirectionalLight(0xffffcc, 1.5); // White directional light with intensity
+      directionalLight.position.set(1, 1, 1); // Position the light
+      scene.add(directionalLight);
 
-      var fillLight = new THREE.DirectionalLight(
-        new THREE.Color("hsl(240, 100%, 75%)"),
-        0.75
-      );
-      fillLight.position.set(100, 0, 100);
+      // Add directional light from the left
+      const directionalLightLeft = new THREE.DirectionalLight(0xffffff, 1);
+      directionalLightLeft.position.set(-1, 0, 0); // Position the light from the left
+      scene.add(directionalLightLeft);
 
-      var backLight = new THREE.DirectionalLight(0xffffff, 1.0);
-      backLight.position.set(100, 0, -100).normalize();
+      // Add directional light from the left
+      const directionalLightRight = new THREE.DirectionalLight(0xffffff, 1);
+      directionalLightRight.position.set(4, 0, 0); // Position the light from the left
+      scene.add(directionalLightRight);
 
-      scene.add(keyLight);
-      scene.add(fillLight);
-      scene.add(backLight);
+      // Add directional light from the bottom
+      const directionalLightBack = new THREE.DirectionalLight(0xffffff, 1.5);
+      directionalLightBack.position.set(0, 0, 5); // Position the light from the bottom
+      scene.add(directionalLightBack);
+
+            // Add directional light from the bottom
+            const directionalLightBack2 = new THREE.DirectionalLight(0xffffff, 1.5);
+      directionalLightBack2.position.set(0, 0, -5); // Position the light from the bottom
+      scene.add(directionalLightBack2);
+
+      // Add directional light from the bottom
+      const directionalLightBottom = new THREE.DirectionalLight(0xffffff, 1);
+      directionalLightBottom.position.set(0, -5, 0); // Position the light from the bottom
+      scene.add(directionalLightBottom);
+
+      var ambientLight = new THREE.AmbientLight(0x404040, 1);
+
+      scene.add(ambientLight);
+
+      var helper1 = new THREE.DirectionalLightHelper (directionalLight);
+      var helper2 = new THREE.DirectionalLightHelper (directionalLightLeft);
+      var helper3 = new THREE.DirectionalLightHelper (directionalLightRight);
+      var helper4 = new THREE.DirectionalLightHelper (directionalLightBack);
+      var helper5 = new THREE.DirectionalLightHelper (directionalLightBottom);
+
+      // scene.add(helper1);
+      // scene.add(helper2);
+      // scene.add(helper3);
+      // scene.add(helper4);
+      // scene.add(helper5);
 
       var mtlLoader = new MTLLoader();
 
       mtlLoader.setResourcePath(
-        "assets/object/dc46c6a5-53dc-449a-8225-f3ce4a9a79f6/"
+        "assets/object/0dd3a90d-73dd-4196-a71b-0252d40df623/"
       );
-      mtlLoader.setPath("assets/object/dc46c6a5-53dc-449a-8225-f3ce4a9a79f6/");
-      // mtlLoader.load(
-      //   "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.mtl",
-      //   function (materials) {
-      //     materials.preload();
+      mtlLoader.setPath("assets/object/0dd3a90d-73dd-4196-a71b-0252d40df623/");
+      mtlLoader.load(
+        "0dd3a90d-73dd-4196-a71b-0252d40df623.mtl",
+        function (materials) {
+          materials.preload();
 
-      //     var objLoader = new OBJLoader();
-      //     objLoader.setMaterials(materials);
-      //     objLoader.setPath(
-      //       "assets/object/dc46c6a5-53dc-449a-8225-f3ce4a9a79f6/"
-      //     );
-      //     objLoader.load(
-      //       "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.obj",
-      //       function (object) {
-      //         object.position.set(0, -5, 0); // Adjust the values as needed
-      //         object.scale.set(0.05, 0.05, 0.05);
-      //         // Scale the model to fit the container
-      //         object.scale.setScalar(containerWidth / 200); // Adjust the divisor as needed based on your model's size
-      //         object.rotation.x = -Math.PI / 2;
+          var objLoader = new OBJLoader();
+          objLoader.setMaterials(materials);
+          objLoader.setPath(
+            "assets/object/0dd3a90d-73dd-4196-a71b-0252d40df623/"
+          );
+          objLoader.load(
+            "0dd3a90d-73dd-4196-a71b-0252d40df623.obj",
+            function (object) {
+              object.position.set(0, 0, 0); // Adjust the values as needed
+              // Scale the model to fit the container
+              object.scale.setScalar(containerWidth / 3); // Adjust the divisor as needed based on your model's size
+              object.rotation.y = 25;
+              object.rotation.x = -5;
 
-      //         console.log("successfully load thing");
-      //         scene.add(object);
-      //         object.position.y -= 20;
-      //         object.visible = true;
-      //         console.log(
-      //           `Is the thing added in scene? ${object.parent === scene}`
-      //         );
-      //       }
-      //     );
-      //   }
-      // );
-
-      // Create a sphere geometry
-      var sphereGeometry = new THREE.SphereGeometry(1, 32, 32); // Parameters: radius, widthSegments, heightSegments
-
-      // Create a material for the sphere
-      var sphereMaterial = new THREE.MeshPhongMaterial({ color: 0xff0000 }); // Set the color to red
-
-      // Create a mesh by combining the geometry and material
-      var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-
-      // Set the position of the sphere
-      sphere.position.set(0, 0, 0); // Adjust the position as needed
-
-      // Add the sphere to the scene
-      scene.add(sphere);
+              console.log("successfully load thing");
+              scene.add(object);
+              object.visible = true;
+              console.log(
+                `Is the thing added in scene? ${object.parent === scene}`
+              );
+            }
+          );
+        }
+      );
 
       var animate = function () {
         requestAnimationFrame(animate);

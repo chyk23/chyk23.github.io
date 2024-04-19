@@ -641,3 +641,37 @@ button .navbar-toggler-collapsed {
     width: 80%;
   }
 }
+
+
+
+@media screen and (min-width: 320px) {
+  #model-container {
+    height: 88vh; /* Change the height for screens wider than 768px */
+  }
+}
+
+@media screen and (min-width: 375px) {
+  #model-container {
+    height: 80vh; /* Change the height for screens wider than 768px */
+  }
+}
+
+/* Adjust height for larger screens */
+@media screen and (min-width: 768px) {
+  #model-container {
+    height: 70vh; /* Change the height for screens wider than 768px */
+  }
+}
+
+/* Adjust height for even larger screens */
+@media screen and (min-width: 1200px) {
+  #model-container {
+    height: 80vh; /* Change the height for screens wider than 1200px */
+  }
+}
+
+
+#entry-text {
+  height: 100vh;
+  overflow-y: scroll;
+}

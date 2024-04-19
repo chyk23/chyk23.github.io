@@ -1,0 +1,468 @@
+<!--Object Entry Page-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="assets\shoe-prints-solid.svg" sizes="any" type="image/svg+xml">
+
+    <title>A Step in Time</title>
+
+    <!--Bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!--Three.JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/loaders/MTLLoader.js"></script> -->
+    <!-- <script type="module"  src="https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/controls/OrbitControls.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/jsm/loaders/OBJLoader.js"></script> -->
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.module.js",
+          "OBJLoader": "https://cdn.jsdelivr.net/npm/three@0.134.0/examples/jsm/loaders/OBJLoader.js",
+          "MTLLoader": "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/loaders/MTLLoader.js",
+          "OrbitControls": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/controls/OrbitControls.js"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from "three";
+      import { OrbitControls } from "https://unpkg.com/three@0.138.3/examples/jsm/controls/OrbitControls.js";
+      import { OBJLoader } from "https://unpkg.com/three@0.138.3/examples/jsm/loaders/OBJLoader.js";
+      import { MTLLoader } from "https://unpkg.com/three@0.138.3/examples/jsm/loaders/MTLLoader.js";
+
+      // import {OrbitControls} from "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/controls/OrbitControls.js"
+      // import { OBJLoader } from "https://cdn.jsdelivr.net/npm/three@0.134.0/examples/jsm/loaders/OBJLoader.js";
+      // import { MTLLoader } from "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/loaders/MTLLoader.js";
+
+      // console.log(MTLLoader)
+      // console.log(THREE)
+      // console.log(OrbitControls)
+      // console.log(OBJLoader)
+      // console.log(MTLLoader)
+    </script>
+
+    <!-- <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+        }
+      }
+    </script> -->
+  </head>
+
+  <body>
+    <!--Navbar-->
+    <header>
+      <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand mr-auto" href="#">
+          <h4 style="margin: 0">A Step In Time</h4>
+          <!--<svg></svg>-->
+        </a>
+        <button
+          class="navbar-toggler custom-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-fill" id="navbarNav">
+          <ul class="navbar-nav ms-auto my-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  class="bi bi-house-door mx-auto mb-1"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"
+                  />
+                </svg>
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="timeline.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  class="bi bi-pin-map mx-auto mb-1"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                  />
+                </svg>
+                Timeline
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  class="bi bi-grid-3x3-gap mx-auto mb-1"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M4 2v2H2V2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1m0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1m0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1m5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1m0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1m0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1M9 2v2H7V2zm5 0v2h-2V2zM4 7v2H2V7zm5 0v2H7V7zm5 0h-2v2h2zM4 12v2H2v-2zm5 0v2H7v-2zm5 0v2h-2v-2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"
+                  />
+                </svg>
+                Gallery
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="new-entry.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  class="bi bi-upload mx-auto mb-1"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"
+                  />
+                  <path
+                    d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"
+                  />
+                </svg>
+                Upload
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  class="bi bi-person-circle mx-auto mb-1"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                  />
+                </svg>
+                Login
+              </a>
+            </li>
+            <li class="nav-item">
+              <label>
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input align-middle"
+                    type="checkbox"
+                    id="darkModeToggle"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    class="bi bi-moon-stars-fill mx-auto mb-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"
+                    />
+                    <path
+                      d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"
+                    />
+                  </svg>
+                </div>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid mt-4">
+      <div class="row">
+        <div class="col-lg-8 col-60" id="model-container">
+          <!--3D model-->
+          <h3>Interactive 3D Model</h3>
+          <p>
+            Feel free to interact with the 3D model of the shoe! ♪(^∇^*) <br />
+            If viewing with phone, it is recommended to view in portrait mode.
+          </p>
+        </div>
+
+        <div class="col-lg-4 col-40" id="entry-text">
+          <!--Description-->
+          <div>
+            <h3>Information</h3>
+            <p>
+              <b>Owner:</b> <span id="owner"> Celine Tiu</span><br />
+              <b>Designer:</b> <span id="shoemaker"> Unknown</span><br />
+              <b>Inherited from:</b> <span id="inherited-from"> Mother</span
+              ><br />
+              <b>Inherited when:</b>
+              <span id="inherited-when"> A few years ago (As of 2024)</span
+              ><br /><br />
+            </p>
+          </div>
+
+          <hr id="hr-1" />
+          <div>
+            <h3>Q&A with the Owner</h3>
+            <b>Who made this manek embroidery artwork?</b>
+            <p><span id="q1">Unknown</span></p>
+            <b>Who did you inherit this piece from?</b>
+            <p><span id="q2">Mother</span></p>
+            <b>When, and how did it happen?</b>
+            <p>
+              <span id="q3"
+                >A few years ago my mom bought this kasut manek from a gift shop
+                at Hotel Equatorial Melaka. She gave it to me and I love it so
+                much.</span
+              >
+            </p>
+            <b>What is the significance behind this piece?</b>
+            <p>
+              <span id="q4"
+                >The flower design with fine beads is very unique and beautiful.
+                I love how it matches with my baju kebaya.</span
+              >
+            </p>
+          </div>
+
+          <hr id="hr-2" />
+
+          <h3>The Story</h3>
+          <p>
+            <span id="story"
+              >Celine Tiu, a Melaka native, inherited a beautiful manek
+              embroidery artwork from her mother a few years ago. The origin of
+              the artwork remains unknown, but Celine's mother purchased it from
+              a gift shop at Hotel Equatorial Melaka. Celine cherishes this
+              piece for its unique and beautiful flower design, adorned with
+              fine beads. She loves how it complements her baju kebaya, making
+              it a significant and cherished addition to her collection.</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--three.js core-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!--3D model display Javascript-->
+    <script></script>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--Navbar Scripting-->
+    <script>
+      const toggleButton = document.getElementById("darkModeToggle");
+      const body = document.body;
+      const navbar = document.querySelector(".navbar");
+      const navbarNav = document.querySelector(".navbar-nav");
+
+      toggleButton.addEventListener("change", () => {
+        body.classList.toggle("dark-theme");
+        navbarNav.classList.toggle("dark-theme");
+
+        // Update navbar background color based on the theme
+        if (body.classList.contains("dark-theme")) {
+          navbar.style.backgroundColor = "rgba(40, 40, 40, 1)";
+        } else {
+          navbar.style.backgroundColor = "rgba(79, 66, 54, 1)";
+        }
+      });
+    </script>
+
+    <script type="module">
+      import * as THREE from "three";
+      import { OrbitControls } from "https://unpkg.com/three@0.138.3/examples/jsm/controls/OrbitControls.js";
+      import { OBJLoader } from "https://unpkg.com/three@0.138.3/examples/jsm/loaders/OBJLoader.js";
+      import { MTLLoader } from "https://unpkg.com/three@0.138.3/examples/jsm/loaders/MTLLoader.js";
+
+      var scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x818589);
+
+      var containerStyle = getComputedStyle(
+        document.getElementById("model-container"),
+        null
+      );
+      var SCREEN_HEIGHT = parseInt(containerStyle.getPropertyValue("height")),
+        SCREEN_WIDTH = parseInt(containerStyle.getPropertyValue("width"));
+
+      var camera = new THREE.PerspectiveCamera(
+        75,
+        SCREEN_WIDTH / SCREEN_HEIGHT,
+        0.1,
+        500
+      );
+      camera.position.z = 150;
+
+      // // Adjust camera aspect ratio
+      // var container = document.getElementById("model-container");
+      // var containerStyle = getComputedStyle(container, null);
+      // var containerWidth = parseInt(containerStyle.getPropertyValue("width"));
+      // var containerHeight = parseInt(containerStyle.getPropertyValue("height"));
+      // var aspectRatio = containerWidth / containerHeight;
+      // camera.aspect = aspectRatio;
+      // camera.updateProjectionMatrix();
+
+      // Get container dimensions
+      var container = document.getElementById("model-container");
+      var containerWidth = container.clientWidth; // Use clientWidth to include padding
+      var containerHeight = container.clientHeight; // Use clientHeight to include padding
+
+      // Calculate padding (e.g., 10 pixels)
+      var padding = 10;
+
+      // Adjust camera aspect ratio
+      var aspectRatio =
+        (containerWidth - 2 * padding) /
+        (containerHeight - (40 / 100) * containerHeight); // Subtract padding
+      camera.aspect = aspectRatio;
+      camera.updateProjectionMatrix();
+
+      var renderer = new THREE.WebGLRenderer();
+      // renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+
+      // Set renderer size to fit within the container with padding
+      renderer.setSize(
+        containerWidth - 2 * padding,
+        containerHeight - (40 / 100) * containerHeight
+      ); // Subtract padding
+
+      document
+        .getElementById("model-container")
+        .appendChild(renderer.domElement);
+
+      var controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.25;
+      controls.enableZoom = true;
+
+      const directionalLight = new THREE.DirectionalLight(0xffffcc, 1.5); // White directional light with intensity
+      directionalLight.position.set(1, 1, 1); // Position the light
+      scene.add(directionalLight);
+
+      // Add directional light from the left
+      const directionalLightLeft = new THREE.DirectionalLight(0xffffff, 1);
+      directionalLightLeft.position.set(-1, 0, 0); // Position the light from the left
+      scene.add(directionalLightLeft);
+
+      // Add directional light from the left
+      const directionalLightRight = new THREE.DirectionalLight(0xffffff, 1);
+      directionalLightRight.position.set(4, 0, 0); // Position the light from the left
+      scene.add(directionalLightRight);
+
+      // Add directional light from the bottom
+      const directionalLightBack = new THREE.DirectionalLight(0xffffff, 1.5);
+      directionalLightBack.position.set(0, 0, 5); // Position the light from the bottom
+      scene.add(directionalLightBack);
+
+            // Add directional light from the bottom
+            const directionalLightBack2 = new THREE.DirectionalLight(0xffffff, 1.5);
+      directionalLightBack2.position.set(0, 0, -5); // Position the light from the bottom
+      scene.add(directionalLightBack2);
+
+      // Add directional light from the bottom
+      const directionalLightBottom = new THREE.DirectionalLight(0xffffff, 1);
+      directionalLightBottom.position.set(0, -5, 0); // Position the light from the bottom
+      scene.add(directionalLightBottom);
+
+      var ambientLight = new THREE.AmbientLight(0x404040, 1);
+
+      scene.add(ambientLight);
+
+      var helper1 = new THREE.DirectionalLightHelper (directionalLight);
+      var helper2 = new THREE.DirectionalLightHelper (directionalLightLeft);
+      var helper3 = new THREE.DirectionalLightHelper (directionalLightRight);
+      var helper4 = new THREE.DirectionalLightHelper (directionalLightBack);
+      var helper5 = new THREE.DirectionalLightHelper (directionalLightBottom);
+
+      // scene.add(helper1);
+      // scene.add(helper2);
+      // scene.add(helper3);
+      // scene.add(helper4);
+      // scene.add(helper5);
+
+      var mtlLoader = new MTLLoader();
+
+      mtlLoader.setResourcePath(
+        "assets/object/dc46c6a5-53dc-449a-8225-f3ce4a9a79f6/"
+      );
+      mtlLoader.setPath("assets/object/dc46c6a5-53dc-449a-8225-f3ce4a9a79f6/");
+      mtlLoader.load(
+        "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.mtl",
+        function (materials) {
+          materials.preload();
+
+          var objLoader = new OBJLoader();
+          objLoader.setMaterials(materials);
+          objLoader.setPath(
+            "assets/object/dc46c6a5-53dc-449a-8225-f3ce4a9a79f6/"
+          );
+          objLoader.load(
+            "dc46c6a5-53dc-449a-8225-f3ce4a9a79f6.obj",
+            function (object) {
+              object.position.set(0, 0, 0); // Adjust the values as needed
+              // Scale the model to fit the container
+              object.scale.setScalar(containerWidth / 3); // Adjust the divisor as needed based on your model's size
+              object.rotation.y = 45;
+              object.rotation.x = -50;
+
+              console.log("successfully load thing");
+              scene.add(object);
+              object.visible = true;
+              console.log(
+                `Is the thing added in scene? ${object.parent === scene}`
+              );
+            }
+          );
+        }
+      );
+
+      var animate = function () {
+        requestAnimationFrame(animate);
+        // controls.update();
+        renderer.render(scene, camera);
+      };
+
+      animate();
+    </script>
+  </body>
+</html>
